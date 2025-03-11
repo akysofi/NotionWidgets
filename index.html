@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Widget Reloj</title>
-  <!-- Enlazamos nuestro archivo CSS -->
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Flip Clock Lilac</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="clock">
-    <h1 id="time">--:--:--</h1>
-    <p id="date">Cargando fecha...</p>
+  <div class="clock-container">
+    <div class="flip-clock">
+      <!-- Horas -->
+      <div class="digit" id="hourTens"></div>
+      <div class="digit" id="hourOnes"></div>
+      <div class="colon">:</div>
+      <!-- Minutos -->
+      <div class="digit" id="minuteTens"></div>
+      <div class="digit" id="minuteOnes"></div>
+      <div class="colon">:</div>
+      <!-- Segundos -->
+      <div class="digit" id="secondTens"></div>
+      <div class="digit" id="secondOnes"></div>
+    </div>
+    <div class="day" id="dayDisplay"></div>
   </div>
 
-  <!-- Enlazamos nuestro archivo JS -->
   <script src="script.js"></script>
 </body>
 </html>
+
