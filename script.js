@@ -1,67 +1,31 @@
-/* Fondo general */
-body {
-  margin: 0;
-  background: #e8daef; /* Lilac clarito de fondo */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+function updateClock() {
+  const now = new Date();
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  let seconds = now.getSeconds();
+
+  // Convertir a cadenas con 2 dígitos
+  let hStr = hours.toString().padStart(2, '0');
+  let mStr = minutes.toString().padStart(2, '0');
+  let sStr = seconds.toString().padStart(2, '0');
+
+  // Separar cada dígito
+  document.getElementById('hourTens').textContent   = hStr.charAt(0);
+  document.getElementById('hourOnes').textContent   = hStr.charAt(1);
+  document.getElementById('minuteTens').textContent = mStr.charAt(0);
+  document.getElementById('minuteOnes').textContent = mStr.charAt(1);
+  document.getElementById('secondTens').textContent = sStr.charAt(0);
+  document.getElementById('secondOnes').textContent = sStr.charAt(1);
+
+  // Día de la semana en español (abreviado)
+  const days = ['Dom.', 'Lun.', 'Mar.', 'Mié.', 'Jue.', 'Vie.', 'Sáb.'];
+  let dayName = days[now.getDay()];
+  document.getElementById('dayDisplay').textContent = dayName;
 }
 
-/* Contenedor para centrar el reloj y el día */
-.clock-container {
-  text-align: center;
-}
+// Ejecutar al cargar
+updateClock();
+// Actualizar cada segundo
+setInterval(updateClock, 1000);
 
-/* Contenedor del flip clock */
-.flip-clock {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Cada dígito */
-.digit {
-  background: #a259ff; /* Morado */
-  color: #fff;
-  font-size: 80px;
-  font-weight: bold;
-  width: 100px;
-  height: 150px;
-  margin: 0 5px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-}
-
-/* Línea horizontal que da el efecto “flip” */
-.digit::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* Los dos puntos entre horas, minutos y segundos */
-.colon {
-  color: #a259ff;
-  font-size: 80px;
-  margin: 0 5px;
-  width: 20px;
-  text-align: center;
-}
-
-/* Texto del día (ej. Lun.) */
-.day {
-  margin-top: 10px;
-  font-size: 24px;
-  color: #5e35b1; /* Morado más oscuro */
-  font-weight: 500;
-}
 
